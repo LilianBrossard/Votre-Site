@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'aquirebold';
+    src: url('../font/aquirebold-8ma601-webfont.woff2') format('woff2'),
+         url('../font/aquirebold-8ma601-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aquireregular';
+    src: url('../font/aquire-bw0ox1-webfont.woff2') format('woff2'),
+         url('../font/aquire-bw0ox1-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aquirelight';
+    src: url('../font/aquirelight-yze0o1-webfont.woff2') format('woff2'),
+         url('../font/aquirelight-yze0o1-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent)),
+        rgb(var(--accent-light)) 30%,
+        white 60%
+    );
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #ffffff;
+    margin: 0;
+    padding: 10px;
+}
+
+h1{
+    font-family: 'aquirebold';
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.67em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.33em;
+}
+
+h6 {
+    font-size: 1.17em;
+}
+p {
+    font-size: 0.8em;
+}
