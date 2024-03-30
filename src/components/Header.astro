@@ -1,10 +1,71 @@
-<header>
-  <div class="flex flex-row">
-    <img
-      src="/assets/LogoV.jpg"
-      alt="Logo en V"
-      class="w-16 h-16 rounded-full drop-shadow-lg"
-    />
-    <h1>VOTRE SITE</h1>
-  </div>
+---
+import { entreprise } from "../js/appelleAPI.js";
+
+const entrepriseInstance = await entreprise();
+---
+
+<header
+  class="flex flex-col md:flex-row flex-wrap md:place-content-between shadow md:shadow-lg md:shadow-slate-400 shadow-slate-400 pb-4 sticky"
+>
+  <a href="/"
+    ><div class="flex flex-row items-center flex-wrap">
+      <img
+        src={entrepriseInstance.logo.url}
+        alt=`logo de ${entrepriseInstance.nom}`
+        class="w-12 h-12 rounded-full"
+      />
+      <h1>{entrepriseInstance.nom}</h1>
+    </div></a
+  >
+  <nav class="flex flex-col md:flex-row items-start md:items-center">
+    <a
+      href="/"
+      class="px-2 lg:px-4 md:py-2 transform transition duration-300 hover:scale-[1.1] relative group"
+      ><h2>Accueil</h2><span
+        class="none md:absolute -bottom-1 left-0 w-0 h-[4px] bg-slate-700 transition-all group-hover:w-full md:-skew-x-12"
+      ></span></a
+    >
+    <a
+      href="/groupe/"
+      class="px-2 lg:px-4 md:py-2 transform transition duration-300 hover:scale-[1.1] relative group"
+      ><h2>Groupe</h2><span
+        class="none md:absolute -bottom-1 left-0 w-0 h-[4px] bg-slate-700 transition-all group-hover:w-full md:-skew-x-12"
+      ></span></a
+    >
+    <a
+      href="/poste/"
+      class="px-2 lg:px-4 md:py-2 transform transition duration-300 hover:scale-[1.1] relative group"
+      ><h2>Postes</h2><span
+        class="none md:absolute -bottom-1 left-0 w-0 h-[4px] bg-slate-700 transition-all group-hover:w-full md:-skew-x-12"
+      ></span></a
+    >
+    <a
+      href="/offre/"
+      class="px-2 lg:px-4 md:py-2 transform transition duration-300 hover:scale-[1.1] relative group"
+      ><h2>Offres</h2><span
+        class="none md:absolute -bottom-1 left-0 w-0 h-[4px] bg-slate-700 transition-all group-hover:w-full md:-skew-x-12"
+      ></span></a
+    >
+    <a
+      href="/actu/"
+      class="px-2 lg:px-4 md:py-2 transform transition duration-300 hover:scale-[1.1] relative group"
+      ><h2>Actualités</h2><span
+        class="none md:absolute -bottom-1 left-0 w-0 h-[4px] bg-slate-700 transition-all group-hover:w-full md:-skew-x-12"
+      ></span></a
+    >
+    <a
+      href="/contact/"
+      class="px-2 lg:px-4 md:py-2 transform transition duration-300 hover:scale-[1.1] relative group"
+      ><h2>Contacts</h2><span
+        class="none md:absolute -bottom-1 left-0 w-0 h-[4px] bg-slate-700 transition-all group-hover:w-full md:-skew-x-12"
+      ></span></a
+    >
+  </nav>
+  <div></div>
+  <div></div>
 </header>
+<style>
+  h1 {
+    font-family: "aquirebold";
+  }
+</style>

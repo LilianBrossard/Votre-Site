@@ -1,7 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Presentation from "../components/Presentation.astro";
+
+import { entreprise } from "../js/appelleAPI.js";
+import { actu } from "../js/appelleAPI.js";
+
+const actuInstance = await actu();
+const entrepriseInstance = await entreprise();
 ---
 
-<Layout title="Votre Prochain Site">
-  <main></main>
+<Layout title="Accueil">
+  <main>
+    <Presentation />
+    <div class="mx-4 md:mx-16 lg:mx-24"></div>
+  </main>
 </Layout>
+
+<style>
+  h2 {
+    font-family: "aquirebold";
+  }
+</style>

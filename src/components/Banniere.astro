@@ -1,0 +1,13 @@
+---
+import { entreprise } from "../js/appelleAPI.js";
+
+const entrepriseInstance = await entreprise();
+---
+
+<div>
+  <img
+    src={entrepriseInstance.banniere.url}
+    alt="banniere de l'entreprise"
+    class="w-full h-32 object-cover shadow-lg -z-10 my-4 shadow-black md:-skew-x-12 md:-ml-16 rounded md:rounded-none md:rounded-br-xl md:rounded-tl-xl"
+  />
+</div>

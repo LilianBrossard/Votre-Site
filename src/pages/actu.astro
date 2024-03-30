@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Banniere from "../components/Banniere.astro";
+
+import { actu } from "../js/appelleAPI.js";
+
+const actuInstance = await actu();
+---
+
+<Layout title="Actualités">
+  <Banniere />
+</Layout>
