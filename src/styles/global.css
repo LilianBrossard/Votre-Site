@@ -40,35 +40,33 @@
 body {
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #ffffff;
-    margin: 0;
-    padding: 10px;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2.3em;
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 h3 {
-    font-size: 1.17em;
+    font-size: 1.47em;
 }
 
 h4 {
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 h5 {
-    font-size: 0.83em;
+    font-size: 1.13em;
 }
 
 h6 {
-    font-size: 0.67em;
+    font-size: 0.97em;
 }
 p {
-    font-size: 0.6em;
+    font-size: 0.9em;
 }
 
 @media screen and (min-width: 1024px) {
@@ -86,18 +84,18 @@ h3 {
 }
 
 h4 {
-    font-size: 1.5em;
+    font-size: 1.55em;
 }
 
 h5 {
-    font-size: 1.33em;
+    font-size: 1.43em;
 }
 
 h6 {
-    font-size: 1.17em;
+    font-size: 1.27em;
 }
 p {
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 }

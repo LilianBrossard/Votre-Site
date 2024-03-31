@@ -1,8 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Banniere from "../components/Banniere.astro";
+import PostePrev from "../components/PostePrev.astro";
+import { poste } from "../js/appelleAPI.js";
+
+const posteInstance = await poste();
 ---
 
-<Layout title="Poste ">
+<Layout title="Offres ">
   <Banniere />
+  <main class="mx-4 md:mx-24 lg:mx-48">
+    <h1>Nos offres de postes :</h1>
+    <ul>
+      {
+        posteInstance.map((poste) => (
+          <li>
+            <PostePrev
+              resume={poste.resumeDuPoste}
+              titre={poste.nomDuPoste}
+              slug={poste.slug}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </main>
 </Layout>

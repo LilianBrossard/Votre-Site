@@ -1,0 +1,58 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Banniere from "../../components/Banniere.astro";
+
+export const prerender = true;
+export async function getStaticPaths() {
+  const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        {
+        postes(orderBy: publishedAt_ASC) {
+            nomDuPoste
+            descriptionDuPoste {
+                html
+            }
+            resumeDuPoste
+            slug
+            }
+        }`,
+    }),
+  });
+  const postesData = await response.json();
+
+  const paths = postesData.data.postes.map((poste) => ({
+    params: {
+      slug: poste.slug,
+    },
+    props: {
+      poste,
+    },
+  }));
+
+  return paths;
+}
+//@ts-ignore
+const poste = Astro.props.poste;
+---
+
+<Layout title=`Poste de ${poste.slug}`>
+  <Banniere />
+  <main class="mx-4 md:mx-24 lg:mx-48">
+    <h1><strong>{poste.nomDuPoste}</strong></h1>
+    <hr class="border-2 w-full border-black my-8 shadow-md shadow-black" />
+    <h3>
+      <strong>Description du poste :</strong>
+    </h3>
+    <h4>{poste.resumeDuPoste}</h4>
+    <hr class="border-2 w-full border-black my-8 shadow-md shadow-black" />
+    <div id="monDiv">{poste.descriptionDuPoste.html}</div>
+
+    {poste.descriptionDuPoste.html}
+  </main>
+</Layout>

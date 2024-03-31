@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Banniere from "../components/Banniere.astro";
+import ActuPrev from "../components/ActuPrev.astro";
 
 import { actu } from "../js/appelleAPI.js";
 
@@ -9,4 +10,21 @@ const actuInstance = await actu();
 
 <Layout title="Actualités">
   <Banniere />
+  <main class="mx-4 md:mx-24 lg:mx-48">
+    <h1>Actualités</h1>
+    <ul>
+      {
+        actuInstance.map((actu) => (
+          <li>
+            <ActuPrev
+              date={actu.date}
+              image={actu.image.url}
+              texte={actu.texte}
+              titre={actu.titre}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </main>
 </Layout>

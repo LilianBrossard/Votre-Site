@@ -1,10 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Presentation from "../components/Presentation.astro";
+import ActuPrev from "../components/ActuPrev.astro";
+import StatPrev from "../components/StatPrev.astro";
+import PostePrev from "../components/PostePrev.astro";
 
 import { entreprise } from "../js/appelleAPI.js";
 import { actu } from "../js/appelleAPI.js";
+import { stat } from "../js/appelleAPI.js";
+import { poste } from "../js/appelleAPI.js";
 
+const posteInstance = await poste();
+const statInstance = await stat();
 const actuInstance = await actu();
 const entrepriseInstance = await entreprise();
 ---
@@ -12,12 +19,72 @@ const entrepriseInstance = await entreprise();
 <Layout title="Accueil">
   <main>
     <Presentation />
-    <div class="mx-4 md:mx-16 lg:mx-24"></div>
+    <div class="mx-4 md:mx-24 lg:mx-48">
+      <div class="flex flex-col xl:flex-row w-full">
+        {
+          statInstance.map((stat) => (
+            <div class="w-full xl:w-1/4 m-2 rounded-lg shadow shadow-sky-800 bg-sky-800 p-2 md:p-4">
+              <StatPrev
+                titre={stat.nomDeLaStat}
+                texte={stat.statEnQuestion}
+                image={stat.image.url}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <h1>Dernières Actualités</h1>
+        <a class="flex flex-row items-center" href="/actu/">
+          <h3>Voir toutes les actualités</h3>
+          <img
+            src="/assets/arrow-right.svg"
+            alt="arrow right"
+            class="w-12 h-12"
+          />
+        </a>
+        <div></div>
+      </div>
+      <ul>
+        {
+          actuInstance.slice(0, 2).map((actu) => (
+            <li>
+              <ActuPrev
+                date={actu.date}
+                image={actu.image.url}
+                texte={actu.texte}
+                titre={actu.titre}
+              />
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <h1>Nos offres d'emplois</h1>
+        <a class="flex flex-row items-center" href="/poste/">
+          <h3>Voir toutes les postes disponibles</h3>
+          <img
+            src="/assets/arrow-right.svg"
+            alt="arrow right"
+            class="w-12 h-12"
+          />
+        </a>
+        <div></div>
+      </div>
+      <ul>
+        {
+          posteInstance.slice(0, 2).map((poste) => (
+            <li>
+              <PostePrev
+                resume={poste.resumeDuPoste}
+                titre={poste.nomDuPoste}
+                slug={poste.slug}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </main>
 </Layout>
-
-<style>
-  h2 {
-    font-family: "aquirebold";
-  }
-</style>
