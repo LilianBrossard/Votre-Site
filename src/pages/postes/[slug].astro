@@ -4,7 +4,8 @@ import Banniere from "../../components/Banniere.astro";
 
 export const prerender = true;
 export async function getStaticPaths() {
-  const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+  const hygraphEndpoint = import.meta.env.HYGRAPH_ENDPOINT;
+  const response = await fetch(hygraphEndpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
