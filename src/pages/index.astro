@@ -33,10 +33,15 @@ const entrepriseInstance = await entreprise();
           ))
         }
       </div>
-      <div class="flex flex-col md:flex-row items-center justify-between">
-        <h1>Dernières Actualités</h1>
-        <a class="flex flex-row items-center" href="/actu/">
-          <h3>Voir toutes les actualités</h3>
+      <div
+        class="flex flex-col md:flex-row items-center justify-between my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+      >
+        <h2 class="text-white">Dernières Actualités</h2>
+        <a
+          class="flex flex-row items-center transform transition duration-300 hover:scale-[1.1]"
+          href="/actu/"
+        >
+          <h4 class="text-white">Voir toutes les actualités</h4>
           <img
             src="/assets/arrow-right.svg"
             alt="arrow right"
@@ -60,10 +65,15 @@ const entrepriseInstance = await entreprise();
         }
       </ul>
 
-      <div class="flex flex-col md:flex-row items-center justify-between">
-        <h1>Nos offres d'emplois</h1>
-        <a class="flex flex-row items-center" href="/poste/">
-          <h3>Voir toutes les postes disponibles</h3>
+      <div
+        class="flex flex-col md:flex-row items-center justify-between my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+      >
+        <h2 class="text-white">Nos offres d'emplois</h2>
+        <a
+          class="flex flex-row items-center transform transition duration-300 hover:scale-[1.1]"
+          href="/poste/"
+        >
+          <h4 class="text-white">Voir toutes les postes disponibles</h4>
           <img
             src="/assets/arrow-right.svg"
             alt="arrow right"
@@ -74,7 +84,7 @@ const entrepriseInstance = await entreprise();
       </div>
       <ul>
         {
-          posteInstance.slice(0, 2).map((poste) => (
+          posteInstance.slice(0, 1).map((poste) => (
             <li>
               <PostePrev
                 resume={poste.resumeDuPoste}

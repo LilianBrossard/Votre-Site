@@ -1,9 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Banniere from "../components/Banniere.astro";
+import { offre } from "../js/appelleAPI.js";
+
+const offreInstance = await offre();
 ---
 
 <Layout title="Offres ">
   <Banniere />
-  <main class="mx-4 md:mx-24 lg:mx-48"></main>
+  <main class="mx-4 md:mx-24 lg:mx-48">
+    <div
+      class="w-full my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+    >
+      <h2 class="text-white">Découvrez toutes nos offres</h2>
+    </div>
+    <div>
+      {
+        offreInstance.map((poste) => (
+          <div class="mb-16">
+            <div class="flex flex-col lg:flex-row">
+              <div class="flex flex-col lg:w-1/2">
+                <h2>{poste.nomDeLoffre}</h2>
+                <div set:html={poste.descriptionDeLoffre.html} />
+              </div>
+              <img
+                src={poste.image.url}
+                alt={poste.nomDeLoffre}
+                class="lg:w-1/2 object-cover lg:ml-4 rounded-lg shadow-lg shadow-slate-700 p-0"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
 </Layout>

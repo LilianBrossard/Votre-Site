@@ -11,7 +11,11 @@ const actuInstance = await actu();
 <Layout title="Actualités">
   <Banniere />
   <main class="mx-4 md:mx-24 lg:mx-48">
-    <h1>Actualités</h1>
+    <div
+      class="w-full my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+    >
+      <h2 class="text-white">Actualités</h2>
+    </div>
     <ul>
       {
         actuInstance.map((actu) => (

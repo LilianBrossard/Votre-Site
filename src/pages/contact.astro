@@ -1,8 +1,53 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Banniere from "../components/Banniere.astro";
+import { contacts } from "../js/appelleAPI.js";
+import { entreprise } from "../js/appelleAPI.js";
+
+const entrepriseInstance = await entreprise();
+const contactsInstance = await contacts();
 ---
 
 <Layout title="Contacts ">
   <Banniere />
+  <main class="mx-4 md:mx-24 lg:mx-48">
+    <div
+      class="w-full my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+    >
+      <h2 class="text-white">Vous pouvez nous contacter ou nous rejoindre</h2>
+    </div>
+    <div class="flex flex-col">
+      <div
+        class="w-full lg:w-2/3 m-2 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2 md:p-4 my-8"
+      >
+        <a
+          href=`mailto:${entrepriseInstance.mail}`
+          class="max-w-full flex flex-row"
+        >
+          <img src="/assets/mail.svg" alt="mail" class="w-12 h-12 pr-2" />
+          <h4
+            class="text-white transform transition duration-300 hover:scale-x-[1.01]"
+          >
+            en envoyant un Mail
+          </h4>
+        </a>
+      </div>
+      {
+        contactsInstance.map((contact) => (
+          <div class="w-full lg:w-2/3 m-2 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2 md:p-4 my-8">
+            <a href={contact.lien} class="max-w-full flex flex-row">
+              <img
+                src={contact.image.url}
+                alt={contact.reseaux}
+                class="w-12 h-12 pr-2"
+              />
+              <h4 class="text-white transform transition duration-300 hover:scale-x-[1.01]">
+                sur notre {contact.reseaux}
+              </h4>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </main>
 </Layout>

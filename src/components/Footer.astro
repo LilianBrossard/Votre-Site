@@ -1,0 +1,58 @@
+---
+import { entreprise } from "../js/appelleAPI.js";
+
+const entrepriseInstance = await entreprise();
+---
+
+<footer class="flex flex-col justify-around bg-sky-700 min-h-64 w-full">
+  <div class="flex flex-col lg:flex-row justify-around p-4 lg:p-16">
+    <a
+      href=`mailto:${entrepriseInstance.mail}`
+      class="max-w-full flex flex-row transform transition duration-300 hover:scale-[1.1]"
+    >
+      <img src="/assets/mail.svg" alt="mail" class="w-12 h-12 pr-2" />
+      <h4
+        class="text-white transform transition duration-300 hover:scale-x-[1.01]"
+      >
+        Contact
+      </h4>
+    </a>
+    <div>
+      <a
+        href="/groupe/#cdd"
+        class="max-w-full flex flex-row transform transition duration-300 hover:scale-[1.1]"
+      >
+        <img src="/assets/cdd.svg" alt="mail" class="w-12 h-12 pr-2" />
+        <h4 class="text-white">Comité de Direction</h4>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/offre/"
+        class="max-w-full flex flex-row transform transition duration-300 hover:scale-[1.1]"
+      >
+        <img src="/assets/sell.svg" alt="mail" class="w-12 h-12 pr-2" />
+        <h4 class="text-white">Notre Offre</h4>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/poste/"
+        class="max-w-full flex flex-row transform transition duration-300 hover:scale-[1.1]"
+      >
+        <img src="/assets/job.svg" alt="mail" class="w-12 h-12 pr-2" />
+        <h4 class="text-white">Nos postes disponible</h4>
+      </a>
+    </div>
+    <div>
+      <a
+        href="/contact/"
+        class="max-w-full flex flex-row transform transition duration-300 hover:scale-[1.1]"
+      >
+        <img src="/assets/social.svg" alt="mail" class="w-12 h-12 pr-2" />
+        <h4 class="text-white">Nos réseaux</h4>
+      </a>
+    </div>
+  </div>
+  <h6>© 2024 Your Company, Inc. All rights reserved.</h6>
+</footer>

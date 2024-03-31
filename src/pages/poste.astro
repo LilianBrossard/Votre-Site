@@ -7,10 +7,14 @@ import { poste } from "../js/appelleAPI.js";
 const posteInstance = await poste();
 ---
 
-<Layout title="Offres ">
+<Layout title="Postes ">
   <Banniere />
   <main class="mx-4 md:mx-24 lg:mx-48">
-    <h1>Nos offres de postes :</h1>
+    <div
+      class="w-full my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+    >
+      <h2 class="text-white">Nos offres de postes :</h2>
+    </div>
     <ul>
       {
         posteInstance.map((poste) => (

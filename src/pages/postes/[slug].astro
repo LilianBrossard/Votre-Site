@@ -46,13 +46,14 @@ const poste = Astro.props.poste;
   <main class="mx-4 md:mx-24 lg:mx-48">
     <h1><strong>{poste.nomDuPoste}</strong></h1>
     <hr class="border-2 w-full border-black my-8 shadow-md shadow-black" />
-    <h3>
+    <h5>
       <strong>Description du poste :</strong>
-    </h3>
-    <h4>{poste.resumeDuPoste}</h4>
+    </h5>
+    <h6>{poste.resumeDuPoste}</h6>
     <hr class="border-2 w-full border-black my-8 shadow-md shadow-black" />
-    <div id="monDiv">{poste.descriptionDuPoste.html}</div>
-
-    {poste.descriptionDuPoste.html}
+    <div set:html={poste.descriptionDuPoste.html} />
+    <a href="/contact/"
+      ><h4 class="underline">contactez nous ici pour postuler</h4></a
+    >
   </main>
 </Layout>

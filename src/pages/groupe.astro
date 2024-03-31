@@ -1,8 +1,42 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Banniere from "../components/Banniere.astro";
+import Membre from "../components/Membre.astro";
+
+import { group } from "../js/appelleAPI.js";
+import { comiteDeDirections } from "../js/appelleAPI.js";
+
+const cddInstance = await comiteDeDirections();
+const groupInstance = await group();
 ---
 
 <Layout title="Groupe ">
   <Banniere />
+  <main class="mx-4 md:mx-24 lg:mx-48">
+    <div
+      class="w-full my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+    >
+      <h2 class="text-white">Qui sommes nous ?</h2>
+    </div>
+    <div set:html={groupInstance.descritption.html} />
+    <div>
+      <div
+        class="w-full my-4 md:my-8 rounded-lg shadow shadow-slate-700 bg-slate-700 p-2"
+      >
+        <h2 id="cdd" class="text-white">Comité de direction :</h2>
+      </div>
+      {
+        cddInstance.map((cdd) => (
+          <div class="w-full m-2 p-2 md:p-4 xl:w-2/3">
+            <Membre
+              biographie={cdd.biographie}
+              nomEtPrenom={cdd.nomEtPrenom}
+              posteOccuper={cdd.posteOccuper}
+              photo={cdd.photo.url}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </main>
 </Layout>

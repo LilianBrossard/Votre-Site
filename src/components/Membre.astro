@@ -1,0 +1,27 @@
+---
+interface Props {
+  biographie: string;
+  nomEtPrenom: string;
+  posteOccuper: string;
+  photo: string;
+}
+
+const { biographie, nomEtPrenom, posteOccuper, photo } = Astro.props;
+---
+
+<div class="flex flex-col">
+  <div class="w-full my-8 flex flex-col md:flex-row p-4">
+    <img
+      src={photo}
+      alt={nomEtPrenom}
+      class="shadow-md shadow-slate-700 order-2 md:order-1 w-[300px] h-[300px] object-cover"
+    />
+    <div
+      class="mt-4 md:ml-4 md:mt-0 flex flex-col justify-around md:order-2 order-1"
+    >
+      <h3>{nomEtPrenom}</h3>
+      <h5>{posteOccuper}</h5>
+      <p>{biographie}</p>
+    </div>
+  </div>
+</div>
